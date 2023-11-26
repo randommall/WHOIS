@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I AM THIS</title>
+</head>
+<body>
+     <!-- Header displaying the WHOIS lookup result for the provided domain -->
+     <h1>WHOIS lookup result for {{ domain_name }}</h1>
+    
+     <!-- Button for navigating back to the index page -->
+     <button onclick="window.location.href='{{ url_for('index') }}'">BACK</button>
+     
+     <!-- Display WHOIS information or a message if not available -->
+     <pre>{% if whois_info %}
+        <!-- apply filter to the to converted the response to json formatted strings  -->>
+        {{ whois_info | tojson(indent=4) }}
+
+         {% else %}
+         <p>WHOIS information currently not available</p>
+         {% endif %}
+     </pre>
+    
+</body>
+</html>
